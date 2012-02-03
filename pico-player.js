@@ -1,5 +1,5 @@
 /**
- * pico-player.js v@VERSION
+ * pico-player.js v2.0
  * simple audio stream interface with Web Audio API, Audio Data API or HTMLAudioElement
  */
 this.pico = this.pico || {};
