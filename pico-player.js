@@ -425,11 +425,16 @@ this.pico = this.pico || {};
             if (playerklass.PLAYER_TYPE === WebkitPlayer.PLAYER_TYPE) {
                 options.play_interval = 25;
             } else if (playerklass.PLAYER_TYPE === MozPlayer.PLAYER_TYPE) {
-                options.play_interval = 40;
+                options.play_interval = 25;
             } else if (playerklass.PLAYER_TYPE === DynamicWavPlayer.PLAYER_TYPE) {
-                options.play_interval = 200;
-            } else if (playerklass.PLAYER_TYPE === NOPPlayer.PLAYER_TYPE) {
-                options.play_interval = 100;
+                if (options.realtime) {
+                    options.play_interval = 40;
+                    playerklass = NopPlayer;
+                } else {
+                    options.play_interval = 200;
+                }
+            } else if (playerklass.PLAYER_TYPE === NopPlayer.PLAYER_TYPE) {
+                options.play_interval = 40;
             }
             
             return new playerklass(options);
