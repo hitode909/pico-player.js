@@ -135,13 +135,12 @@ this.pico = this.pico || {};
                     };
                 } else {
                     func = function (event) {
-                        var stream, dataL, dataR, i;
+                        var stream, data, i;
                         stream = generator.next();
-                        dataL = event.outputBuffer.getChannelData(0);
-                        dataR = event.outputBuffer.getChannelData(1);
-                        i = dataL.length;
+                        data = event.outputBuffer.getChannelData(0);
+                        i = data.length;
                         while (i--) {
-                            dataL[i] = dataR[i] = stream[i];
+                            data[i] = stream[i];
                         }
                     };                       
                 }
